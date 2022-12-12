@@ -32,7 +32,7 @@ std::tuple<std::string, std::string> p01(const std::string &input) {
         }
     }
 
-    std::sort(top.begin(), top.end(), std::greater<>());
+    std::partial_sort(top.begin(), top.begin()+3, top.end(), std::greater<>());
     ans1 = top[0];
     for(int i = 0; i < 3; i++)
     {

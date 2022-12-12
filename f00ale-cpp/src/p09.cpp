@@ -35,7 +35,7 @@ std::tuple<std::string, std::string> p09(const std::string &input) {
 
     for (auto p: {1, 2}) {
         std::vector<std::pair<int, int>> pos(p == 1 ? 2 : 10);
-        std::set<std::pair<int, int>> tpos;
+        std::set<std::tuple<int, int>> tpos;
         tpos.insert(pos.back());
 
         for (auto [d, m]: moves) {
@@ -65,12 +65,8 @@ std::tuple<std::string, std::string> p09(const std::string &input) {
                     auto &[nx, ny] = pos[i];
                     // update nx,y to follow px,y
                     if(abs(px-nx) > 1 || abs(py-ny) > 1) {
-                        if(px==nx) ny += (ny<py) ? 1 : -1;
-                        else if(py==ny) nx += (nx<px) ? 1 : -1;
-                        else {
-                            ny += ny < py ? 1 : -1;
-                            nx += nx < px ? 1 : -1;
-                        }
+                        if(py!=ny) ny += (ny<py) ? 1 : -1;
+                        if(px!=nx) nx += (nx<px) ? 1 : -1;
                     }
                 }
                 tpos.insert(pos.back());
