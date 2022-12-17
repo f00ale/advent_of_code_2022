@@ -5,6 +5,7 @@
 #include <tuple>
 #include <set>
 #include <stack>
+#include <memory>
 
 struct node {
     bool islist = true;
