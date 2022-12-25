@@ -55,8 +55,8 @@ int main(int argc, char **argv) {
 
             auto timeus = std::chrono::duration_cast<std::chrono::microseconds>(end-start);
             total_time += timeus;
-            std::cout << std::right << std::setw(2) << num << ": " << std::setw(15) << std::get<0>(ret) <<
-                    " " << std::setw(55) << std::get<1>(ret)
+            std::cout << std::right << std::setw(2) << num << ": " << std::setw(25) << std::get<0>(ret) <<
+                    " " << std::setw(35) << std::get<1>(ret)
                     << " " << std::setw(10) << timeus.count() << "us " << check << std::endl;
 
         } else {
@@ -64,6 +64,6 @@ int main(int argc, char **argv) {
         }
     }
 
-    std::cout << std::left << std::setw(76) << "Total: " << std::right << std::setw(10) << total_time.count() << "us" << std::endl;
+    std::cout << std::left << std::setw(66) << "Total: " << std::right << std::setw(10) << total_time.count() << "us" << std::endl;
 
 }
